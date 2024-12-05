@@ -1,0 +1,7 @@
+{
+  "name": "chaski-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
