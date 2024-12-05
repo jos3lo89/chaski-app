@@ -1,0 +1,96 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-back-button slot="start"></ion-back-button>
+
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header style="text-align: center">
+      <ion-card-title>Iniciar Sesión</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <form [formGroup]="form" (ngSubmit)="ingresar()">
+        <ion-list>
+          <ion-input
+            formControlName="email"
+            label="Correo Electronico"
+            label-placement="floating"
+            fill="solid"
+            placeholder="Ingrese su correo"
+            type="email"
+          ></ion-input>
+          <br />
+          <ion-input
+            formControlName="password"
+            label="Contraseña"
+            label-placement="floating"
+            fill="solid"
+            placeholder="Ingrese su contraseña"
+            type="password"
+          ></ion-input>
+          <br /><br />
+
+          <ion-button
+            expand="full"
+            type="submit"
+            [disabled]="isLoadingBtnSubmit"
+          >
+            @if (isLoadingBtnSubmit) {
+
+            <ion-spinner name="crescent"></ion-spinner>
+            } @else { Ingresar }
+          </ion-button>
+
+          <br />
+          <ion-button
+            (click)="loginWithGoogle()"
+            style="
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              gap: 10px;
+            "
+          >
+            <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="30"
+                height="30"
+                viewBox="0 0 48 48"
+              >
+                <path
+                  fill="#FFC107"
+                  d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8c-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4C12.955 4 4 12.955 4 24s8.955 20 20 20s20-8.955 20-20c0-1.341-.138-2.65-.389-3.917"
+                />
+                <path
+                  fill="#FF3D00"
+                  d="m6.306 14.691l6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4C16.318 4 9.656 8.337 6.306 14.691"
+                />
+                <path
+                  fill="#4CAF50"
+                  d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238A11.9 11.9 0 0 1 24 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.227 44 24 44"
+                />
+                <path
+                  fill="#1976D2"
+                  d="M43.611 20.083H42V20H24v8h11.303a12.04 12.04 0 0 1-4.087 5.571l.003-.002l6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.65-.389-3.917"
+                />
+              </svg>
+            </div>
+            <div>Ingresar con google</div>
+          </ion-button>
+
+          <br />
+
+          <br />
+          <ion-button expand="full" fill="clear" [routerLink]="['/register']"
+            >Registrate</ion-button
+          >
+        </ion-list>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
